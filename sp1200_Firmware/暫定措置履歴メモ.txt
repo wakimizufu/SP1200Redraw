@@ -1,0 +1,192 @@
+【edited_1_E-mu SP1200 OS Firmware ROM.save_memory.obj】
+・シミュレータではROM領域 0000hから順次データ書き換えを行ってしまうので以下の様に暫定措置を取る
+0091h 「ld (hl),a」(77h)⇒「nop」(00h)
+
+・00B9h IN A,(58H)
+I/O 58hを「60h」で設定しないと0000hへジャンプしてしまう
+
+
+・文字列テーブル
+0113-0122h「SP-1200  REV B」
+0124-0133h「Loading Software」
+0136-0145h「InsertDiskette」
+0148-0157h「Disk Read Error」 
+
+0817-0822h「1 = Cassette」
+0824-082Fh「2 = MidiDisk」
+
+0832-0841h「MidiDisk: 1=Seqs」
+0843-0852h「2=Snds 3=MakeDsk」
+
+0855-0864h「Cassette: 1=Seqs」
+0866-0875h「2=Snds 3=MakeDsk」
+0878-0885h「Start Cassette」
+0888-0896h「Insert MidiDisk」
+0899-08A3h「Press Enter」
+08A7-08A3h「NO = Abort」
+08B3-08BFh「Saving SP1200」
+08C1-08CFh「Seqs and Sounds」
+08D3-08DAh「Complete」
+08D3-08EAh「Aborted」
+08E7-08F5h「Disk Read Error」 
+08F8-0906h「Wrong File Type」 
+090B-0919h「Write Protected」 
+091C-092Bh「Disk Rd/VerError」 
+092E-093Dh「NoDisk Connected」 
+0940-094Eh「Drive Not Ready」 
+
+0DB4-0DC3h「Reading the Disk」 
+0DC5-0DCEh「NO = Abort」
+
+10F2-10FCh「RAM test in」
+10FE-1105h「progress」
+1108-1112h「RAM error @」
+1115-1120h「 IC1.ah Bad?」
+1123-1128h「RAM OK」
+112A-1134h「Press ENTER」
+116F-117Ah「ROM Cksub = 」
+117D-118Ch「1=Snd RAM 2=Disk」
+
+12AD-12BBh「Snd RAM Test in」
+12BD-12C4h「Progress」
+12C7-12D6h「Sound Mem:OK  」
+12D8-12E2h「Press ENTER」
+12E5-12F3h「Snd Mem Error @」
+12F9-1304h「 IC1.ah Bad?」
+
+1375-1384h「Buttons Released」
+1386-1395h「ENTER exits test」
+
+13Ef-150Ch(行間はFEh)
+「footswitch 1」
+「footswitch 2」
+「footswitch 3」
+「run/stop」
+「tap/repeat」
+「play 1」
+「play 2」
+「play 3」
+「play 4」
+「play 5」
+「play 6」
+「play 7」
+「play 8」
+「record/edit」
+「mix/step」
+「tempoCh/autoCorr」
+「del/erase」
+「ins/seglength」
+「end/tsig」
+「subsong/copy」
+「repeat/swing」
+「trig/met」
+「bank select」
+「tune/mix/multi」
+「Disk」
+「Set-up」
+「song/seg」
+「Sample」
+「Sync」
+「tempo」
+
+1512-1548h(行間はFEh)
+「enter」
+「zero」
+「one」
+「two」
+「three」
+「four」
+「five」
+「six」
+「seven」
+「eight」
+「nine」
+
+
+15C1-15D0h「Lamp test: Press」
+15D2-15DEh「ENTER to exit」
+
+1689-1698h「Trim RT1 To 0800」
+169A-169Fh「RT1 = 」
+
+16ED-16FCh「Connect MIDI IN&」
+16FE-170Dh「OUT; Press ENTER」
+1710-1717h「MIDI: OK」
+1719-1723h「Press ENTER」
+1726-1734h「MIDI FAIL. In &」
+16FE-170Dh「Out Unconnected?」
+
+181E-182Dh「Connect SMPTE IN」
+182F-183Eh「& OUT;hit ENTER」
+1841-184Dh「Testing SMPTE」
+1853-1862h「SMPTE OK @ 24&30」
+1864-186Eh「Press ENTER」
+1871-1880h「SMPTE FAIL. In &」
+1882-1891h「Out Unconnected?」
+
+1903-1911h「Dynamic Button」
+1913-1919h「Value: 」
+
+1A56-1A65h「Disk Test: 1=VER」
+1A67-1A67h「2=WR/VER  3=EXI」
+1A79-1A88h「Not Ready: 1=VER」
+1A8A-1A99h「2=WR/VER  3=EXIT」
+1A9C-1AABh「WriteProt: 1=VER」
+1AAD-1ABCh「2=WR/VER  3=EXIT」
+1ABF-1ACEh「NotFmtted: 1=VER」
+1AD0-1ADFh「2=WR/VER  3=EXIT」
+1AE2-1AF1h「Pass HE DE SE P1」
+
+
+-----------------------------------------------------------------------------
+I/Oマップ
+
+[out]
+51h
+53h
+
+80h
+81h
+82h
+83h
+84h
+85h
+86h
+87h
+88h
+
+8Ch
+90h
+94h
+98h
+9Ch
+
+A0h
+A1h:LCD文字列
+=============================================================
+[in]
+
+
+
+A2h⇒未定義命令なので使ってない?
+
+=============================================================
+[初期化]
+80h:00h
+81h:00h
+82h:00h
+83h:00h
+84h:00h
+85h:00h
+86h:00h
+87h:00h
+88h:7Ch
+
+8Ch:00h
+90h:00h
+
+94h:02h,00h,03h,04h,0Ah,08h,0Bh,0Ch,12h,10h,13h,14h,1Ah,18h,1Bh,1Ch,22h,20h,23h,24h,2Ah,28h,2Bh,2Ch,32h,30h,33h,34h,3Ah,38h,3Bh,3Ch,07h
+98h:FDh,FDh,00h,00h,FDh,FDh,00h,00h,FDh,FDh,00h,00h,FDh,FDh,00h,00h,FDh,FDh,00h,00h,FDh,FDh,00h,00h,FDh,FDh,00h,00h,FDh,FDh,00h,00h,00h,
+9Ch:FFh,FFh,00h,00h,FFh,FFh,00h,00h,FFh,FFh,00h,00h,FFh,FFh,00h,00h,FFh,FFh,00h,00h,FFh,FFh,00h,00h,FFh,FFh,00h,00h,FFh,FFh,00h,00h,00h,
+
+-----------------------------------------------------------------------------
