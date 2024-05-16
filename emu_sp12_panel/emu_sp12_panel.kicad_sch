@@ -1,0 +1,85 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 60ecd6bf-6d40-4370-aaa3-f1242dd2dfd4)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 149.86 21.59) (size 17.78 11.43) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 1a33c77c-1f4d-403f-a5fa-e00314af1212)
+    (property "Sheetname" "Connector" (at 149.86 20.8784 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "Connector.kicad_sch" (at 149.86 33.6046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "emu_sp12_panel"
+        (path "/60ecd6bf-6d40-4370-aaa3-f1242dd2dfd4" (page "5"))
+      )
+    )
+  )
+
+  (sheet (at 33.02 24.13) (size 29.21 10.16) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 34d2f2ea-a015-4eb4-a98b-e5925f2480c1)
+    (property "Sheetname" "Switch" (at 33.02 23.4184 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "Switch.kicad_sch" (at 33.02 34.8746 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "emu_sp12_panel"
+        (path "/60ecd6bf-6d40-4370-aaa3-f1242dd2dfd4" (page "2"))
+      )
+    )
+  )
+
+  (sheet (at 77.47 24.13) (size 13.97 8.89) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 74f425ac-d1be-4845-aacf-6012b9a80029)
+    (property "Sheetname" "LED" (at 77.47 23.4184 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "LED.kicad_sch" (at 77.47 33.6046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (property "フィールド2" "" (at 77.47 24.13 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (instances
+      (project "emu_sp12_panel"
+        (path "/60ecd6bf-6d40-4370-aaa3-f1242dd2dfd4" (page "3"))
+      )
+    )
+  )
+
+  (sheet (at 106.68 22.86) (size 12.7 7.62) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 7e7adbf4-93f5-406a-a96b-9f5ea6327e5e)
+    (property "Sheetname" "Potentiometers" (at 106.68 22.1484 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "Potentiometers.kicad_sch" (at 106.68 31.0646 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "emu_sp12_panel"
+        (path "/60ecd6bf-6d40-4370-aaa3-f1242dd2dfd4" (page "4"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)
